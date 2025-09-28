@@ -1,3 +1,6 @@
+
+
+
 def jogo_21():
     fosforos = 21
     print("---Jogo dos 21 Fósforos---")
