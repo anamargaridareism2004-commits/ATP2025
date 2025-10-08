@@ -1,1 +1,84 @@
+#TPC3
+import random
+
+def menu():
+    print("\n--- MENU ---")
+    print("(1) Criar Lista")
+    print("(2) Ler Lista")
+    print("(3) Soma")
+    print("(4) Média")
+    print("(5) Maior")
+    print("(6) Menor")
+    print("(7) Está ordenada por ordem crescente?")
+    print("(8) Está ordenada por ordem decrescente?")
+    print("(9) Procurar um elemento")
+    print("(0) Sair")
+
+lista = []
+
+while True:
+    menu()
+    opcao = input("Escolha uma opção: ")
+
+
+    if opcao == "1":
+        n = int(input("Quantos números aleatórios pretende gerar? "))
+        lista = [random.randint(1, 100) for _ in range(n)]
+        print("Lista criada:", lista)
+
+    elif opcao == "2":
+        valores = input("Introduza os números separados por espaços: ")
+        lista = [int(x) for x in valores.split()]
+        print("Lista introduzida:", lista)
+    elif opcao == "3":
+        if lista:
+            print("Soma dos elementos:", sum(lista))
+        else:
+            print("A lista está vazia!")
+
+    elif opcao == "4":
+        if lista:
+            print("Média dos elementos:", sum(lista) / len(lista))
+        else:
+            print("A lista está vazia!")
+
+    elif opcao == "5":
+        if lista:
+            print("Maior elemento:", max(lista))
+        else:
+            print("A lista está vazia!")
+
+    elif opcao == "6":
+        if lista:
+            print("Menor elemento:", min(lista))
+        else:
+            print("A lista está vazia!")
+    elif opcao == "7":
+        if lista:
+            ordenada = all(lista[i] <= lista[i+1] for i in range(len(lista)-1))
+            print("Está ordenada por ordem crescente?", "Sim" if ordenada else "Não")
+        else:
+            print("A lista está vazia!")
+    elif opcao == "8":
+        if lista:
+            ordenada = all(lista[i] >= lista[i+1] for i in range(len(lista)-1))
+            print("Está ordenada por ordem decrescente?", "Sim" if ordenada else "Não")
+        else:
+            print("A lista está vazia!")
+    elif opcao == "9":
+        if lista:
+            elemento = int(input("Elemento a procurar: "))
+            if elemento in lista:
+                print(f"O elemento {elemento} está na posição {lista.index(elemento)}")
+            else:
+                print("-1 (Elemento não encontrado)")
+        else:
+            print("A lista está vazia!")
+    elif opcao == "0":
+        print("\nPrograma terminado.")
+        print("Lista final guardada:", lista)
+        break
+
+    else:
+        print("Opção inválida! Tente novamente.")
 
