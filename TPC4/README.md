@@ -1,3 +1,4 @@
+
 def procurarSala(cinema,filme):
     for i in range (len(cinema)):
         if cinema[i][2]== filme:
@@ -64,3 +65,4 @@ def removerSala(cinema,filme):
     else:
         print("Sala com o filme", filme, "removida")
         return [s for s in cinema if s[2]!=filme]
+        
